@@ -1,70 +1,202 @@
-# Getting Started with Create React App
+# SkyWatch - Modern Weather Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A beautiful, production-ready weather web application built with React, featuring real-time weather data, hourly and daily forecasts, with a stunning glassmorphism UI design.
 
-## Available Scripts
+![SkyWatch Preview](preview.png)
 
-In the project directory, you can run:
+## ✨ Features
 
-### `npm start`
+### Core Functionality
+- **Real-time Weather Data** - Current weather conditions for any location worldwide
+- **Hourly Forecast** - 24-hour detailed forecast with temperature and precipitation
+- **7-Day Forecast** - Week-long weather predictions with high/low temperatures
+- **Location Search** - Smart search with autocomplete suggestions
+- **Geolocation Support** - Automatic weather detection based on your location
+- **Favorite Locations** - Save and quickly access your favorite cities
+- **Unit Toggle** - Switch between Celsius/Fahrenheit
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### UI/UX Features
+- **Glassmorphism Design** - Modern, premium aesthetic with frosted glass effects
+- **Dark/Light Mode** - Full theme support with smooth transitions
+- **Dynamic Backgrounds** - Background changes based on weather conditions and time of day
+- **Animated Weather Effects** - Rain and snow particle animations
+- **Responsive Design** - Optimized for mobile, tablet, and desktop
+- **Smooth Animations** - Framer Motion powered transitions
+- **Loading States** - Skeleton loaders and shimmer effects
+- **Error Handling** - User-friendly error messages
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠 Tech Stack
 
-### `npm test`
+- **Framework:** React 19
+- **Styling:** Tailwind CSS with custom glassmorphism utilities
+- **Animations:** Framer Motion
+- **Date Handling:** date-fns
+- **API:** WeatherAPI.com
+- **State Management:** React Hooks (useState, useEffect, custom hooks)
+- **Font:** Google Fonts (Inter)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📁 Project Structure
 
-### `npm run build`
+```
+src/
+├── components/
+│   ├── ui/                      # Reusable UI components
+│   │   ├── Button.jsx
+│   │   ├── Card.jsx
+│   │   ├── Input.jsx
+│   │   ├── Switch.jsx
+│   │   ├── Skeleton.jsx
+│   │   ├── LoadingSpinner.jsx
+│   │   └── ErrorAlert.jsx
+│   └── layout/                  # Layout components
+│       └── Navbar.jsx
+├── features/
+│   └── weather/
+│       └── components/          # Weather-specific components
+│           ├── CurrentWeatherCard.jsx
+│           ├── HourlyForecastList.jsx
+│           ├── DailyForecastList.jsx
+│           ├── SearchBar.jsx
+│           ├── WeatherBackground.jsx
+│           └── FavoritesSidebar.jsx
+├── hooks/                       # Custom React hooks
+│   ├── useDebounce.js
+│   ├── useTheme.js
+│   ├── useFavorites.js
+│   └── useGeolocation.js
+├── lib/                         # API integration
+│   └── weatherApi.js
+├── utils/                       # Utility functions
+│   └── formatters.js
+├── config/                      # Configuration
+│   └── constants.js
+├── App.js                       # Main application
+├── index.js                     # Entry point
+└── index.css                    # Global styles
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Node.js (v14 or higher)
+- npm or yarn
+- WeatherAPI.com API key (free tier available)
 
-### `npm run eject`
+### Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd weather-app-task
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. **Set up environment variables**
+   
+   Create a `.env` file in the root directory:
+   ```bash
+   cp .env.example .env
+   ```
+   
+   Add your WeatherAPI.com API key to the `.env` file:
+   ```
+   REACT_APP_WEATHER_API_KEY=your_api_key_here
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. **Start the development server**
+   ```bash
+   npm start
+   ```
+   
+   The app will open at [http://localhost:3000](http://localhost:3000)
 
-## Learn More
+### Getting an API Key
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Visit [WeatherAPI.com](https://www.weatherapi.com/)
+2. Sign up for a free account
+3. Navigate to your dashboard
+4. Copy your API key
+5. Paste it in the `.env` file
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📦 Build for Production
 
-### Code Splitting
+```bash
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This creates an optimized production build in the `build/` folder.
 
-### Analyzing the Bundle Size
+## 🎨 Design Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Glassmorphism
+The app uses a custom glassmorphism design system with:
+- Frosted glass effect with backdrop blur
+- Semi-transparent backgrounds
+- Subtle borders and shadows
+- Smooth hover transitions
 
-### Making a Progressive Web App
+### Dynamic Backgrounds
+Backgrounds automatically adapt based on:
+- **Weather Condition:** Clear, Cloudy, Rainy, Snowy, Stormy, Foggy
+- **Time of Day:** Morning, Afternoon, Evening, Night
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Animations
+- Smooth page transitions
+- Staggered list animations
+- Weather icon animations
+- Particle effects for rain/snow
+- Loading shimmer effects
 
-### Advanced Configuration
+## 🔧 Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Default Settings
+Edit `src/config/constants.js` to change:
+- Default city
+- Default temperature unit
+- Number of forecast days
+- Debounce delay
+- And more...
 
-### Deployment
+### Theme Customization
+Modify `tailwind.config.js` to customize:
+- Color palette
+- Animations
+- Spacing
+- Typography
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 📱 Responsive Design
 
-### `npm run build` fails to minify
+The app is fully responsive with breakpoints for:
+- **Mobile:** < 640px
+- **Tablet:** 640px - 1024px
+- **Desktop:** > 1024px
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🌐 Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+## 🙏 Acknowledgments
+
+- Weather data provided by [WeatherAPI.com](https://www.weatherapi.com/)
+- Icons from [Heroicons](https://heroicons.com/)
+- Font from [Google Fonts](https://fonts.google.com/)
+
+## 📧 Contact
+
+For questions or feedback, please open an issue on GitHub.
+
+---
+
+**Built with ❤️ using React and Tailwind CSS**
